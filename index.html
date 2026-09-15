@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristid-Nullid minimax-AI vastu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="board-frame">
+
+  <header class="masthead">
+    <h1>Trips-traps-trull!</h1>
+    <p class="subhead">Ristid-nullid minimax-tehisintellekti vastu</p>
+  </header>
+
+  <section class="controls" aria-label="Seaded">
+    <div class="control-group">
+      <span class="control-label">Tehisintellekti tase</span>
+      <div class="chip-row" role="radiogroup" aria-label="Raskusaste">
+        <button class="chip" data-difficulty="easy">Juhuslik</button>
+        <button class="chip" data-difficulty="hard-ab">Minimax (α-β)</button>
+        <button class="chip" data-difficulty="hard-plain">Minimax (puhas)</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <span class="control-label">Sina mängid</span>
+      <div class="chip-row" role="radiogroup" aria-label="Märk">
+        <button class="chip" data-mark="X">X (alustad)</button>
+        <button class="chip" data-mark="O">O (AI alustab)</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="table">
+    <div class="board" id="board" role="grid" aria-label="Mängulaud"></div>
+
+    <aside class="scorepad" aria-label="Statistika">
+      <div class="status-line" id="status">Sinu käik.</div>
+
+      <dl class="score-grid">
+        <div class="score-cell">
+          <dt>Võidud</dt>
+          <dd id="score-win">0</dd>
+        </div>
+        <div class="score-cell">
+          <dt>Viigid</dt>
+          <dd id="score-draw">0</dd>
+        </div>
+        <div class="score-cell">
+          <dt>Kaotused</dt>
+          <dd id="score-loss">0</dd>
+        </div>
+      </dl>
+
+      <div class="perf-panel">
+        <p class="perf-title">Viimase AI-käigu ressursikulu</p>
+        <dl class="perf-grid">
+          <div><dt>Läbi vaadatud sõlmi</dt><dd id="perf-nodes">—</dd></div>
+          <div><dt>Otsuse aeg</dt><dd id="perf-time">—</dd></div>
+        </dl>
+        <p class="perf-note" id="perf-note">Vali raskusaste ja tee esimene käik, et võrdlust näha.</p>
+      </div>
+
+      <button class="reset-btn" id="reset">Uus mäng</button>
+    </aside>
+  </main>
+
+  <footer class="colophon">
+    <p>Minimax + alfa-beeta kärpimine · vaata <a href="README.md">README.md</a> loomisprotsessi ja <a href="LOG.md">LOG.md</a> tegevuslogi kohta.</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
